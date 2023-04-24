@@ -1,4 +1,4 @@
-controller ansible_host=10.84.0.6 ansible_user=abra ansible_ssh_pass=qwerty12345
-node1 ansible_host=10.84.0.7 ansible_user=abra ansible_ssh_pass=qwerty12345
-node2 ansible_host=10.84.0.8 ansible_user=abra ansible_ssh_pass=qwerty12345
+controller ansible_host= <yourIPAddress> ansible_user=abra ansible_ssh_pass=<YourPassword>
+node1 ansible_host= <yourIPAddress> ansible_user=abra ansible_ssh_pass=<YourPassword>
+node2 ansible_host= <yourIPAddress> ansible_user=abra ansible_ssh_pass=<YourPassword>
 
