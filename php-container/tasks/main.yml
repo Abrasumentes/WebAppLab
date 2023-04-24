@@ -16,4 +16,4 @@
         ports:
           - "8888:80"
         volumes:
-          - "/var/www/html/index.php:/home/abra/DockerUbuntu/WebApp"
+          - "/var/www/html/index.php:/home/yourusrname/yourdirectory"
