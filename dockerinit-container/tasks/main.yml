@@ -1,0 +1,47 @@
+---
+# tasks file for dockerinit-container
+    - name: Update apt cache
+      apt:
+        update_cache: 'yes'
+
+    - name: Install dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg-agent
+          - software-properties-common
+          - python3
+        state: present
+        update_cache: 'yes'
+
+    - name: Install Docker CLI
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Create a Docker Network
+      docker_network:
+        name: web_app_network
+
+
+    - name: Adding Docker GPG apt key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+   
+    - name: Install Docker Module for Python
+      pip:
+        name: docker

@@ -1,0 +1,14 @@
+---
+- name: WebApp
+  hosts: controller
+  become: yes
+  gather_facts: no
+#  tasks:
+
+
+  roles:
+    - dockerinit-container
+    - prometheus-container
+    - mysql-container
+    - php-container
+    - webpage-container

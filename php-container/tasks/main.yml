@@ -1,0 +1,19 @@
+---
+# tasks file for php-container
+
+    - name: Pull PHP image
+      docker_image:
+        name: php:7.4-fpm
+        state: present
+
+    - name: PHP container
+      docker_container:
+        name: php
+        image: php:7.4-fpm
+        state: started
+        networks:
+          - name: web_app_network
+        ports:
+          - "8888:80"
+        volumes:
+          - "/var/www/html/index.php:/home/abra/DockerUbuntu/WebApp"

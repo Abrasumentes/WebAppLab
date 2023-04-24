@@ -1,0 +1,17 @@
+---
+# tasks file for mysql-container
+
+    - name: Start MySQL container
+      docker_container:
+        name: mysql
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: qwerty12345
+          MYSQL_DATABASE: webappdb
+          MYSQL_USER: abra
+          MYSQL_PASSWORD: qwerty12345
+        state: started
+        networks:
+          - name: web_app_network
+        ports:
+          - 3306:3306

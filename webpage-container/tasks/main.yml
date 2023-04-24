@@ -1,0 +1,28 @@
+---
+# tasks file for webpage-container
+    - name: Volume for the webpage
+      file:
+         path: /root/webpage
+         state: directory
+
+    - name: Copy the webpage
+      copy:
+        dest: "/root/webpage"
+        src: "/var/www/html/index.html"
+
+    - name: Pull a Docker image
+      docker_image:
+            name: httpd
+            source: pull
+
+    - name: Launching the HTTPD container
+      docker_container:
+            name: Webos1
+            image: httpd
+            state: started
+            detach: yes
+            interactive: yes
+            ports:
+             - "8844: 80"
+            volumes:
+             - /root/webpage/:/usr/local/apache2/htdocs/
