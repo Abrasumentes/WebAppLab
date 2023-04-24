@@ -7,5 +7,5 @@
         ports:
           - "9090:9090"
         volumes: 
-          - "/etc/prometheus/:/home/abra/DockerUbuntu/WebApp"
+          - <path/to/file>
         restart_policy: always
